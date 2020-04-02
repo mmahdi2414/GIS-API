@@ -6,7 +6,7 @@ const body_parser = require('body-parser');
 const log = require('./logger/logger');
 const gis_api = require('./gis/api');
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.get('/', (req, res) => res.send('Hello World!'));
