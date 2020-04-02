@@ -9,7 +9,7 @@ const gis_api = require('./gis/api');
 const port = process.env.PORT;
 const app = express();
 
-
+app.get('/', (req, res) => res.send('Hello World!'));
 app.use(body_parser.json());
 app.use(express.json());
 app.use('/gis' , gis_api);
