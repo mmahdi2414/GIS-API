@@ -31,9 +31,11 @@ router.put('/addpolygon', function(req, res){
 	const polygon = req.body;
 	if (!geometry.isGeoJson(polygon) || !geometry.isPolygon(polygon.geometry)) {
 		res.status(400).send("Bad Request");
-	}
-	service.addPolygon(polygon);
-	res.status(200).send(JSON.stringify(service.getPolygons(), null, '\t'));
+    }
+    else {
+	    service.addPolygon(polygon);
+        res.status(200).send(JSON.stringify(service.getPolygons(), null, '\t'));
+    }
 })
 
 
