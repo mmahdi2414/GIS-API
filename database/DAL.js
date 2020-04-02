@@ -1,38 +1,20 @@
-const fs = require('fs');
+const file = require('./../File/file');
 const log = require('./../logger/logger');
 
 const data = '/../data.json';
 
-let polygons;
-try {
-    polygons = JSON.parse(fs.readFileSync(data));
-    log('info' , 'read file successfully')
-} catch(err){
-    log('error' , 
-        `an error was occurred while read from file:
-        ${err}`);
-}
+let polygons = file.read(data);
+
+
 const getPolygons = function() {
 	return polygonsGISData.features;
 };
 
 const addPolygon = function(polygon){
     polygonsGISData.features.push(polygon);
-    addToFile(polygon);
+    file.write(data , polygon);
     log('info','new polygon added to database');
 };
-
-function addToFile(polygon) {
-    try {
-        fs.writeFile(data, JSON.stringify(polygons) , 'utf8');
-        log('info' , 'The polygon was appended to file!');
-      } catch (err) {
-        log('error' , 
-        `an error was occurred while write to file:
-        ${err}`);
-      }
-}
-
 
 module.exports = {
     getPolygons, 
