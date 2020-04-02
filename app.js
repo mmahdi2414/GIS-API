@@ -13,11 +13,6 @@ const app = express();
 app.use(body_parser.json());
 app.use(express.json());
 app.use('/gis' , gis_api);
-app.use(function(req, res, next) {
-	    log('error' , `url: ${req.url} not found.`);
-	    return res.status(404).send({message: `Route ${req.url} Not found.`});
-    }
-);
 
 
 
