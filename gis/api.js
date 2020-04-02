@@ -29,7 +29,7 @@ router.get('/testpoint', [
 
 router.put('/addpolygon', function(req, res){
 	const polygon = req.body;
-	if (!geometry.isGeoJson(polygon) || !geometry.isPolygon(polygon.geometry)) {
+	if (!geometry.isGeoJson(polygon) || !geometry.isPolygon(polygon.geometry) ) {
 		res.status(400).send("Bad Request");
     }
     else {
