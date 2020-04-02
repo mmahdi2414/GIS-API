@@ -1,0 +1,22 @@
+{
+  "name": "gis-api",
+  "version": "1.0.0",
+  "description": "homework 1 of internet engineering",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmahdi2414/GIS-API.git"
+  },
+  "author": "m.mahdi2414",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmahdi2414/GIS-API/issues"
+  },
+  "homepage": "https://github.com/mmahdi2414/GIS-API#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
