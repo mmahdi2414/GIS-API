@@ -5,17 +5,25 @@ const data = 'data.json';
 
 let polygons = file.read(data);
 
+const getDataFile = function(){
+    return polygons;
+}
+
 const getPolygons = function() {
 	return polygons.features;
 };
 
 const addPolygon = function(polygon){
+    if (!file.write(data , polygons)){
+        return false;
+    }
     polygons.features.push(polygon);
-    file.write(data , polygons);
     log('info','new polygon added to database');
+    return true;
 };
 
 module.exports = {
+    getDataFile,
     getPolygons, 
     addPolygon
 };

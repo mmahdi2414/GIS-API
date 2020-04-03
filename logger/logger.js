@@ -1,9 +1,16 @@
-const winston = require('winston');
+const { createLogger, format, transports } = require('winston');
+const { combine, timestamp, prettyPrint} = format;
+const level = 'info';
 
-const logger = winston.createLogger({
+const logger = createLogger({
+    level,
+    format: combine(
+        timestamp(),
+        prettyPrint()
+    ),
     transports: [
-        new winston.transports.Console(),
-        new winston.transports.File({
+        new transports.Console(),
+        new transports.File({
             filename: 'logger.log'
         })
     ]
@@ -11,9 +18,10 @@ const logger = winston.createLogger({
 
 function log(level , message){
     logger.log({
-        level,
-        message
+        message,
+        level
       });
 }
+
 
 module.exports = log;

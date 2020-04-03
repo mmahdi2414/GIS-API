@@ -16,15 +16,17 @@ const write = function(dir , message){
     try {
         fs.writeFile(dir, JSON.stringify(message , null , '\t') , 'utf8', 
             function(err){
-                if (err) log('error' , 'callback');
+                if (err) {
+                    log('error' , 'callback error');
+                    return false;
+                }
             }
         );
         log('info' , 'The data write in file!');
         return true;
       } catch (err) {
         log('error' , 
-        `an error was occurred while write to file:
-        ${err}`);
+        `an error was occurred while write to file:\n${err}`);
       }finally{
           return false;
       }
