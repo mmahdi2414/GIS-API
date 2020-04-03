@@ -1,16 +1,17 @@
 const { createLogger, format, transports } = require('winston');
-const { combine, timestamp, prettyPrint} = format;
+const { combine, timestamp , printf} = format;
 const level = 'info';
 
 const logger = createLogger({
     level,
     format: combine(
         timestamp(),
-        prettyPrint()
+        printf(info =>`new ${info.level} {\n  message: ${info.message}\n  timestamp: ${info.timestamp}\n}\n`),
     ),
     transports: [
-        new transports.Console(),
+        new transports.Console({eol : '\r\n\r\n'}),
         new transports.File({
+            eol : '\r\n\r\n',
             filename: 'logger.log'
         })
     ]

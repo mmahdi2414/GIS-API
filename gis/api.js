@@ -35,7 +35,7 @@ router.use('/addpolygon', function(req, res, next) {
 router.get('/testpoint', checks, function(req, res) {
     const errors = validationResult(req).formatWith(errorFormatter);
     if (!errors.isEmpty()){
-        log('error' , `Unprocessable Entity\n${errors.array()}`);
+        log('error' , `${errors.array()}`);
 	    return res.status(400).json({message: "Bad Request (params error)"});
     }
 	const point = [req.query.long, req.query.lat];

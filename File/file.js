@@ -8,7 +8,7 @@ const read = function (dir) {
         return val;
     } catch(err){
         log('error' , 
-            `an error was occurred while read from file:\n${err}`);
+            `an error was occurred while read from file:    ${err}`);
     }
 }
 
@@ -26,7 +26,7 @@ const write = function(dir , message){
         return true;
       } catch (err) {
         log('error' , 
-        `an error was occurred while write to file:\n${err}`);
+        `an error was occurred while write to file:    ${err}`);
       }finally{
           return false;
       }
