@@ -39,7 +39,8 @@ router.get('/testpoint', checks, function(req, res) {
 	    return res.status(400).json({message: "Bad Request (params error)"});
     }
 	const point = [req.query.long, req.query.lat];
-	return res.status(200).json(re);
+	const result = service.getCoveredPolygon(point);
+    return res.status(200).send(result);
 });
 
 router.put('/addpolygon', function(req, res){
