@@ -20,9 +20,13 @@ const getCoveredPolygon = function(point) {
 };
 
 const addPolygon = function(polygon) {
-	database.addPolygon(polygon);
+ database.addPolygon(polygon);
 };
 
+const getDataFile = () => {
+    return database.getDataFile();
+}
+
 module.exports = {
-	addPolygon, getCoveredPolygon ,getPolygons
+ addPolygon, getCoveredPolygon ,getPolygons ,getDataFile
 };
