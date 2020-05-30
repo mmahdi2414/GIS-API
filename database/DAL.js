@@ -14,10 +14,11 @@ const getPolygons = function() {
 };
 
 const addPolygon = function(polygon){
-    if (!file.write(data , polygons)){
+    polygons.features.push(polygon);
+    if (file.write(data , polygons)===false){
+        polygons.features.pop();
         return false;
     }
-    polygons.features.push(polygon);
     log('info','new polygon added to database');
     return true;
 };

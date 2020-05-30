@@ -27,8 +27,7 @@ const write = function(dir , message){
       } catch (err) {
         log('error' , 
         `an error was occurred while write to file:    ${err}`);
-      }finally{
-          return false;
+      	return false;
       }
 }
 

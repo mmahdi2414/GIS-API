@@ -46,7 +46,7 @@ router.get('/testpoint', checks, function(req, res) {
 router.put('/addpolygon', function(req, res){
 	const polygon = req.body;
 	if (geometry.isGeoJson(polygon) && geometry.isPolygon(polygon.geometry) ) {
-        if (!service.addPolygon(polygon))
+        if (service.addPolygon(polygon)===false)
         {
             return res.status(500).json({message: "Internal Server Error (write error)"});
         }
